@@ -5,11 +5,11 @@
 
 import Foundation
 
-class NavitiaConfiguration {
+public class NavitiaConfiguration {
     let token:String
     let baseUrl:String = "https://api.navitia.io/v1"
 
-    init(token: String) {
+    public init(token: String) {
         self.token = token
     }
 }

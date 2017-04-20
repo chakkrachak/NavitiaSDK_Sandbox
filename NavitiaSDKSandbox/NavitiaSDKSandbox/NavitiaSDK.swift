@@ -5,10 +5,12 @@
 
 import Foundation
 
-class NavitiaSDK {
+public class NavitiaSDK {
     let configuration:NavitiaConfiguration
+    let autoComplete:AutoCompleteFeatureManager
 
-    init(configuration:NavitiaConfiguration) {
+    public init(configuration:NavitiaConfiguration) {
         self.configuration = configuration
+        self.autoComplete = AutoCompleteFeatureManager(navitiaConfiguration: self.configuration)
     }
 }

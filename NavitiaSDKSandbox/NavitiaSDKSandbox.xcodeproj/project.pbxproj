@@ -10,8 +10,13 @@
 		5A1AA6096CDABFD0601EA73A /* NavitiaConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AABB13499501307EF409F /* NavitiaConfiguration.swift */; };
 		5A1AA6881AD62D3C40C0E0ED /* NavitiaConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AABB13499501307EF409F /* NavitiaConfiguration.swift */; };
 		5A1AA738215AAAC45B4D6488 /* NavitiaSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AA6AF95EEFD335A742B2E /* NavitiaSDK.swift */; };
+		5A1AA82680F0BC1AEA70C8BA /* AutoCompleteFeatureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AA1D44657C1581535E97D /* AutoCompleteFeatureManager.swift */; };
+		5A1AA843CF8CC512533C4996 /* AutoCompleteFeatureResourcePlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AA4DCE3F76EE9241CC4C3 /* AutoCompleteFeatureResourcePlaces.swift */; };
+		5A1AAAF849AF432F8886A17D /* AutoCompleteFeatureManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AA1D44657C1581535E97D /* AutoCompleteFeatureManager.swift */; };
 		5A1AAD6BF9D040598B0D21A8 /* NavitiaSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AAD9092265FBF8AD8725F /* NavitiaSDKTests.swift */; };
 		5A1AADD1DDDC61B797B22420 /* AwesomeAssert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AA5BCFB73AF58AD26FCDB /* AwesomeAssert.swift */; };
+		5A1AAE0530EF3ADEA2B92C9B /* AutoCompleteFeatureManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AA7F02F4902E89CAD3CD1 /* AutoCompleteFeatureManagerTests.swift */; };
+		5A1AAEBAC165B268EE03C75C /* AutoCompleteFeatureResourcePlaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AA4DCE3F76EE9241CC4C3 /* AutoCompleteFeatureResourcePlaces.swift */; };
 		5A1AAF7E81C48DE393B78AE4 /* NavitiaSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AA6AF95EEFD335A742B2E /* NavitiaSDK.swift */; };
 		FED9D9291EA8B4D900295A8C /* NavitiaSDKSandbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED9D91F1EA8B4D900295A8C /* NavitiaSDKSandbox.framework */; };
 		FED9D92E1EA8B4D900295A8C /* NavitiaConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED9D92D1EA8B4D900295A8C /* NavitiaConfigurationTests.swift */; };
@@ -29,8 +34,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5A1AA1D44657C1581535E97D /* AutoCompleteFeatureManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteFeatureManager.swift; sourceTree = "<group>"; };
+		5A1AA4DCE3F76EE9241CC4C3 /* AutoCompleteFeatureResourcePlaces.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteFeatureResourcePlaces.swift; sourceTree = "<group>"; };
 		5A1AA5BCFB73AF58AD26FCDB /* AwesomeAssert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeAssert.swift; sourceTree = "<group>"; };
 		5A1AA6AF95EEFD335A742B2E /* NavitiaSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavitiaSDK.swift; sourceTree = "<group>"; };
+		5A1AA7F02F4902E89CAD3CD1 /* AutoCompleteFeatureManagerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoCompleteFeatureManagerTests.swift; sourceTree = "<group>"; };
 		5A1AABB13499501307EF409F /* NavitiaConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavitiaConfiguration.swift; sourceTree = "<group>"; };
 		5A1AAD9092265FBF8AD8725F /* NavitiaSDKTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavitiaSDKTests.swift; sourceTree = "<group>"; };
 		FED9D91F1EA8B4D900295A8C /* NavitiaSDKSandbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NavitiaSDKSandbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,12 +68,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5A1AA108FF57843FD5A5ED16 /* AutoComplete */ = {
+			isa = PBXGroup;
+			children = (
+				5A1AA1D44657C1581535E97D /* AutoCompleteFeatureManager.swift */,
+				5A1AA4DCE3F76EE9241CC4C3 /* AutoCompleteFeatureResourcePlaces.swift */,
+			);
+			path = AutoComplete;
+			sourceTree = "<group>";
+		};
 		5A1AA3464203DB5779F36D4A /* awesomeAssert */ = {
 			isa = PBXGroup;
 			children = (
 				5A1AA5BCFB73AF58AD26FCDB /* AwesomeAssert.swift */,
 			);
 			path = awesomeAssert;
+			sourceTree = "<group>";
+		};
+		5A1AA6556D2219215069AF81 /* AutoComplete */ = {
+			isa = PBXGroup;
+			children = (
+				5A1AA7F02F4902E89CAD3CD1 /* AutoCompleteFeatureManagerTests.swift */,
+			);
+			path = AutoComplete;
 			sourceTree = "<group>";
 		};
 		FED9D9151EA8B4D900295A8C = {
@@ -94,6 +119,7 @@
 				FED9D9231EA8B4D900295A8C /* Info.plist */,
 				5A1AABB13499501307EF409F /* NavitiaConfiguration.swift */,
 				5A1AA6AF95EEFD335A742B2E /* NavitiaSDK.swift */,
+				5A1AA108FF57843FD5A5ED16 /* AutoComplete */,
 			);
 			path = NavitiaSDKSandbox;
 			sourceTree = "<group>";
@@ -104,6 +130,7 @@
 				FED9D92D1EA8B4D900295A8C /* NavitiaConfigurationTests.swift */,
 				FED9D92F1EA8B4D900295A8C /* Info.plist */,
 				5A1AAD9092265FBF8AD8725F /* NavitiaSDKTests.swift */,
+				5A1AA6556D2219215069AF81 /* AutoComplete */,
 			);
 			path = NavitiaSDKSandboxTests;
 			sourceTree = "<group>";
@@ -222,6 +249,8 @@
 			files = (
 				5A1AA6881AD62D3C40C0E0ED /* NavitiaConfiguration.swift in Sources */,
 				5A1AAF7E81C48DE393B78AE4 /* NavitiaSDK.swift in Sources */,
+				5A1AAAF849AF432F8886A17D /* AutoCompleteFeatureManager.swift in Sources */,
+				5A1AAEBAC165B268EE03C75C /* AutoCompleteFeatureResourcePlaces.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -234,6 +263,9 @@
 				5A1AADD1DDDC61B797B22420 /* AwesomeAssert.swift in Sources */,
 				5A1AAD6BF9D040598B0D21A8 /* NavitiaSDKTests.swift in Sources */,
 				5A1AA738215AAAC45B4D6488 /* NavitiaSDK.swift in Sources */,
+				5A1AA82680F0BC1AEA70C8BA /* AutoCompleteFeatureManager.swift in Sources */,
+				5A1AAE0530EF3ADEA2B92C9B /* AutoCompleteFeatureManagerTests.swift in Sources */,
+				5A1AA843CF8CC512533C4996 /* AutoCompleteFeatureResourcePlaces.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
