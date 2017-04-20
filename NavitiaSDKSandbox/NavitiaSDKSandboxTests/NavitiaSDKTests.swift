@@ -26,7 +26,11 @@ class NavitiaSDKTests: XCTestCase {
     func testShouldRetrieveAutoCompleteResultsGivenValidConfiguration() {
         let navitiaSDK:NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "9e304161-bb97-4210-b13d-c71eaf58961c"))
 
-        let result:String = navitiaSDK.autoComplete.places.newRequestBuilder().get()
+        var result:String = ""
+        navitiaSDK.autoComplete.places.newRequestBuilder().get(callback: {
+            (currentAutocompleteResults: String) -> Void in
+            result = currentAutocompleteResults
+        })
 
         Assert.that(result).isEqualTo("9e304161-bb97-4210-b13d-c71eaf58961c")
     }
