@@ -1,0 +1,443 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5A1AA6096CDABFD0601EA73A /* NavitiaConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AABB13499501307EF409F /* NavitiaConfiguration.swift */; };
+		5A1AA6881AD62D3C40C0E0ED /* NavitiaConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AABB13499501307EF409F /* NavitiaConfiguration.swift */; };
+		5A1AA738215AAAC45B4D6488 /* NavitiaSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AA6AF95EEFD335A742B2E /* NavitiaSDK.swift */; };
+		5A1AAD6BF9D040598B0D21A8 /* NavitiaSDKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AAD9092265FBF8AD8725F /* NavitiaSDKTests.swift */; };
+		5A1AADD1DDDC61B797B22420 /* AwesomeAssert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AA5BCFB73AF58AD26FCDB /* AwesomeAssert.swift */; };
+		5A1AAF7E81C48DE393B78AE4 /* NavitiaSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1AA6AF95EEFD335A742B2E /* NavitiaSDK.swift */; };
+		FED9D9291EA8B4D900295A8C /* NavitiaSDKSandbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FED9D91F1EA8B4D900295A8C /* NavitiaSDKSandbox.framework */; };
+		FED9D92E1EA8B4D900295A8C /* NavitiaConfigurationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FED9D92D1EA8B4D900295A8C /* NavitiaConfigurationTests.swift */; };
+		FED9D9301EA8B4D900295A8C /* NavitiaSDKSandbox.h in Headers */ = {isa = PBXBuildFile; fileRef = FED9D9221EA8B4D900295A8C /* NavitiaSDKSandbox.h */; settings = {ATTRIBUTES = (Public, ); }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FED9D92A1EA8B4D900295A8C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FED9D9161EA8B4D900295A8C /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FED9D91E1EA8B4D900295A8C;
+			remoteInfo = NavitiaSDKSandbox;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		5A1AA5BCFB73AF58AD26FCDB /* AwesomeAssert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AwesomeAssert.swift; sourceTree = "<group>"; };
+		5A1AA6AF95EEFD335A742B2E /* NavitiaSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavitiaSDK.swift; sourceTree = "<group>"; };
+		5A1AABB13499501307EF409F /* NavitiaConfiguration.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavitiaConfiguration.swift; sourceTree = "<group>"; };
+		5A1AAD9092265FBF8AD8725F /* NavitiaSDKTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NavitiaSDKTests.swift; sourceTree = "<group>"; };
+		FED9D91F1EA8B4D900295A8C /* NavitiaSDKSandbox.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = NavitiaSDKSandbox.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FED9D9221EA8B4D900295A8C /* NavitiaSDKSandbox.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NavitiaSDKSandbox.h; sourceTree = "<group>"; };
+		FED9D9231EA8B4D900295A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FED9D9281EA8B4D900295A8C /* NavitiaSDKSandboxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NavitiaSDKSandboxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FED9D92D1EA8B4D900295A8C /* NavitiaConfigurationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavitiaConfigurationTests.swift; sourceTree = "<group>"; };
+		FED9D92F1EA8B4D900295A8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FED9D91B1EA8B4D900295A8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FED9D9251EA8B4D900295A8C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FED9D9291EA8B4D900295A8C /* NavitiaSDKSandbox.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5A1AA3464203DB5779F36D4A /* awesomeAssert */ = {
+			isa = PBXGroup;
+			children = (
+				5A1AA5BCFB73AF58AD26FCDB /* AwesomeAssert.swift */,
+			);
+			path = awesomeAssert;
+			sourceTree = "<group>";
+		};
+		FED9D9151EA8B4D900295A8C = {
+			isa = PBXGroup;
+			children = (
+				FED9D9211EA8B4D900295A8C /* NavitiaSDKSandbox */,
+				FED9D92C1EA8B4D900295A8C /* NavitiaSDKSandboxTests */,
+				FED9D9201EA8B4D900295A8C /* Products */,
+				5A1AA3464203DB5779F36D4A /* awesomeAssert */,
+			);
+			sourceTree = "<group>";
+		};
+		FED9D9201EA8B4D900295A8C /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FED9D91F1EA8B4D900295A8C /* NavitiaSDKSandbox.framework */,
+				FED9D9281EA8B4D900295A8C /* NavitiaSDKSandboxTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FED9D9211EA8B4D900295A8C /* NavitiaSDKSandbox */ = {
+			isa = PBXGroup;
+			children = (
+				FED9D9221EA8B4D900295A8C /* NavitiaSDKSandbox.h */,
+				FED9D9231EA8B4D900295A8C /* Info.plist */,
+				5A1AABB13499501307EF409F /* NavitiaConfiguration.swift */,
+				5A1AA6AF95EEFD335A742B2E /* NavitiaSDK.swift */,
+			);
+			path = NavitiaSDKSandbox;
+			sourceTree = "<group>";
+		};
+		FED9D92C1EA8B4D900295A8C /* NavitiaSDKSandboxTests */ = {
+			isa = PBXGroup;
+			children = (
+				FED9D92D1EA8B4D900295A8C /* NavitiaConfigurationTests.swift */,
+				FED9D92F1EA8B4D900295A8C /* Info.plist */,
+				5A1AAD9092265FBF8AD8725F /* NavitiaSDKTests.swift */,
+			);
+			path = NavitiaSDKSandboxTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		FED9D91C1EA8B4D900295A8C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FED9D9301EA8B4D900295A8C /* NavitiaSDKSandbox.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		FED9D91E1EA8B4D900295A8C /* NavitiaSDKSandbox */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FED9D9331EA8B4D900295A8C /* Build configuration list for PBXNativeTarget "NavitiaSDKSandbox" */;
+			buildPhases = (
+				FED9D91A1EA8B4D900295A8C /* Sources */,
+				FED9D91B1EA8B4D900295A8C /* Frameworks */,
+				FED9D91C1EA8B4D900295A8C /* Headers */,
+				FED9D91D1EA8B4D900295A8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = NavitiaSDKSandbox;
+			productName = NavitiaSDKSandbox;
+			productReference = FED9D91F1EA8B4D900295A8C /* NavitiaSDKSandbox.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		FED9D9271EA8B4D900295A8C /* NavitiaSDKSandboxTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FED9D9361EA8B4D900295A8C /* Build configuration list for PBXNativeTarget "NavitiaSDKSandboxTests" */;
+			buildPhases = (
+				FED9D9241EA8B4D900295A8C /* Sources */,
+				FED9D9251EA8B4D900295A8C /* Frameworks */,
+				FED9D9261EA8B4D900295A8C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FED9D92B1EA8B4D900295A8C /* PBXTargetDependency */,
+			);
+			name = NavitiaSDKSandboxTests;
+			productName = NavitiaSDKSandboxTests;
+			productReference = FED9D9281EA8B4D900295A8C /* NavitiaSDKSandboxTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FED9D9161EA8B4D900295A8C /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0810;
+				LastUpgradeCheck = 0810;
+				ORGANIZATIONNAME = "Chakkra CHAK";
+				TargetAttributes = {
+					FED9D91E1EA8B4D900295A8C = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = AK7DPF549M;
+						ProvisioningStyle = Automatic;
+					};
+					FED9D9271EA8B4D900295A8C = {
+						CreatedOnToolsVersion = 8.1;
+						DevelopmentTeam = AK7DPF549M;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FED9D9191EA8B4D900295A8C /* Build configuration list for PBXProject "NavitiaSDKSandbox" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FED9D9151EA8B4D900295A8C;
+			productRefGroup = FED9D9201EA8B4D900295A8C /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FED9D91E1EA8B4D900295A8C /* NavitiaSDKSandbox */,
+				FED9D9271EA8B4D900295A8C /* NavitiaSDKSandboxTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FED9D91D1EA8B4D900295A8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FED9D9261EA8B4D900295A8C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FED9D91A1EA8B4D900295A8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A1AA6881AD62D3C40C0E0ED /* NavitiaConfiguration.swift in Sources */,
+				5A1AAF7E81C48DE393B78AE4 /* NavitiaSDK.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FED9D9241EA8B4D900295A8C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FED9D92E1EA8B4D900295A8C /* NavitiaConfigurationTests.swift in Sources */,
+				5A1AA6096CDABFD0601EA73A /* NavitiaConfiguration.swift in Sources */,
+				5A1AADD1DDDC61B797B22420 /* AwesomeAssert.swift in Sources */,
+				5A1AAD6BF9D040598B0D21A8 /* NavitiaSDKTests.swift in Sources */,
+				5A1AA738215AAAC45B4D6488 /* NavitiaSDK.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FED9D92B1EA8B4D900295A8C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FED9D91E1EA8B4D900295A8C /* NavitiaSDKSandbox */;
+			targetProxy = FED9D92A1EA8B4D900295A8C /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		FED9D9311EA8B4D900295A8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		FED9D9321EA8B4D900295A8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		FED9D9341EA8B4D900295A8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = AK7DPF549M;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = NavitiaSDKSandbox/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.kisio.labs.NavitiaSDKSandbox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FED9D9351EA8B4D900295A8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = AK7DPF549M;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = NavitiaSDKSandbox/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.kisio.labs.NavitiaSDKSandbox;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+		FED9D9371EA8B4D900295A8C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = AK7DPF549M;
+				INFOPLIST_FILE = NavitiaSDKSandboxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.kisio.labs.NavitiaSDKSandboxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		FED9D9381EA8B4D900295A8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEVELOPMENT_TEAM = AK7DPF549M;
+				INFOPLIST_FILE = NavitiaSDKSandboxTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = org.kisio.labs.NavitiaSDKSandboxTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FED9D9191EA8B4D900295A8C /* Build configuration list for PBXProject "NavitiaSDKSandbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FED9D9311EA8B4D900295A8C /* Debug */,
+				FED9D9321EA8B4D900295A8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FED9D9331EA8B4D900295A8C /* Build configuration list for PBXNativeTarget "NavitiaSDKSandbox" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FED9D9341EA8B4D900295A8C /* Debug */,
+				FED9D9351EA8B4D900295A8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		FED9D9361EA8B4D900295A8C /* Build configuration list for PBXNativeTarget "NavitiaSDKSandboxTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FED9D9371EA8B4D900295A8C /* Debug */,
+				FED9D9381EA8B4D900295A8C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FED9D9161EA8B4D900295A8C /* Project object */;
+}
