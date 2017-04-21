@@ -35,6 +35,6 @@ class NavitiaSDKTests: XCTestCase {
         })
 
         waitForExpectations(timeout: 2)
-        Assert.that(result).isEqualTo("9e304161-bb97-4210-b13d-c71eaf58961c")
+        Assert.that(result).isEqualTo("Garein")
     }
 }

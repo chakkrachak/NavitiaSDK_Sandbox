@@ -25,13 +25,13 @@ public class AutoCompleteRequestBuilderPlaces {
             let httpResponse = response as! HTTPURLResponse
             let statusCode = httpResponse.statusCode
 
-            let json:[String:AnyObject]
             if (statusCode == 200) {
                 do {
-                    json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String:AnyObject]
+                    let json:[String:AnyObject] = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String:AnyObject]
+                    // let jsonPlaces:[[String: AnyObject]] = json["places"] as! [[String: AnyObject]]
 
                     DispatchQueue.main.async {
-                        callback("9e304161-bb97-4210-b13d-c71eaf58961c")
+                        callback((json["places"] as! [[String: AnyObject]])[0]["name"] as! String)
                     }
                 } catch {
                     print("Error with Json: \(error)")
