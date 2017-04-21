@@ -29,15 +29,16 @@ public class AutoCompleteRequestBuilderPlaces {
             if (statusCode == 200) {
                 do {
                     json = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String:AnyObject]
+
+                    DispatchQueue.main.async {
+                        callback("9e304161-bb97-4210-b13d-c71eaf58961c")
+                    }
                 } catch {
                     print("Error with Json: \(error)")
                 }
             }
             else {
                 print(statusCode)
-            }
-            DispatchQueue.main.async {
-                callback("9e304161-bb97-4210-b13d-c71eaf58961c")
             }
         }
 
