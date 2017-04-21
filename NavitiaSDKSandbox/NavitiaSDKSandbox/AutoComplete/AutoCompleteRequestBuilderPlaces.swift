@@ -28,7 +28,6 @@ public class AutoCompleteRequestBuilderPlaces {
             if (statusCode == 200) {
                 do {
                     let json:[String:AnyObject] = try JSONSerialization.jsonObject(with: data!, options:.allowFragments) as! [String:AnyObject]
-                    // let jsonPlaces:[[String: AnyObject]] = json["places"] as! [[String: AnyObject]]
 
                     DispatchQueue.main.async {
                         callback((json["places"] as! [[String: AnyObject]])[0]["name"] as! String)
