@@ -29,8 +29,8 @@ class NavitiaSDKTests: XCTestCase {
         let expectation = self.expectation(description: "AutoComplete request completed")
         var result:String = ""
         navitiaSDK.autoComplete.places.newRequestBuilder().get(callback: {
-            (currentAutocompleteResults: String) -> Void in
-            result = currentAutocompleteResults
+            (currentAutocompleteResults: [String:AnyObject]) -> Void in
+            result = (currentAutocompleteResults["places"] as! [[String: AnyObject]])[0]["name"] as! String
             expectation.fulfill()
         })
 
