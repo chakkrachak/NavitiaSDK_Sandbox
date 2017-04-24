@@ -6,5 +6,8 @@
 import Foundation
 
 protocol ProtocolNavitiaRequestBuilder {
-
+    init(navitiaConfiguration: NavitiaConfiguration);
+    func get(callback: @escaping ([String:AnyObject]) -> (Void));
+    func processResponse<T>(data: Data) throws -> T;
+    func url() -> String;
 }

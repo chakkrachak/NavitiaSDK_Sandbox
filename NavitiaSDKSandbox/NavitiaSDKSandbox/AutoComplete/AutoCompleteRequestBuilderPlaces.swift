@@ -7,7 +7,7 @@ import Foundation
 
 public class AutoCompleteRequestBuilderPlaces : BaseNavitiaRequestBuilder, ProtocolNavitiaRequestBuilder {
     // <Generated>
-    public init(navitiaConfiguration: NavitiaConfiguration) {
+    public required init(navitiaConfiguration: NavitiaConfiguration) {
         super.init(navitiaConfiguration: navitiaConfiguration, resourceUri: "/places")
     }
     // </ Generated>
