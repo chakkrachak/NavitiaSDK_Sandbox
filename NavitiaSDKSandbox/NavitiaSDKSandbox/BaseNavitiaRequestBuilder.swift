@@ -7,25 +7,34 @@ import Foundation
 
 public class BaseNavitiaRequestBuilder {
     var navitiaConfiguration: NavitiaConfiguration
-    var resourceUri:String
+    var resourceUri: String
+    var queryParameters:[String: String]
 
     public init(navitiaConfiguration: NavitiaConfiguration, resourceUri: String) {
         self.navitiaConfiguration = navitiaConfiguration
         self.resourceUri = resourceUri
+        self.queryParameters = [:]
     }
 
-    public func url() -> String {
-        return navitiaConfiguration.baseUrl
-                + resourceUri
-                + "?q=gare&"
+    public func getUrl() -> String {
+        var queryParametersResult:[String]=[]
+        for (key, value) in self.queryParameters {
+            queryParametersResult.append(key + "=" + value)
+        }
+
+        var urlResult: String = self.navitiaConfiguration.baseUrl
+                + self.resourceUri
+                + "?" + queryParametersResult.joined(separator: "&")
+
+        return urlResult
     }
 
     func processResponse<T>(data: Data) throws -> T {
-        return try JSONSerialization.jsonObject(with: data, options:.allowFragments) as! T
+        return try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! T
     }
 
     func genericGet<T>(callback: @escaping (T) -> (Void)) {
-        let requestURL: NSURL = NSURL(string: url().addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!
+        let requestURL: NSURL = NSURL(string: getUrl().addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         urlRequest.addValue(self.navitiaConfiguration.token, forHTTPHeaderField: "Authorization")
         let session = URLSession.shared
@@ -37,7 +46,7 @@ public class BaseNavitiaRequestBuilder {
 
             if (statusCode == 200) {
                 do {
-                    let responseJson:T = try self.processResponse(data: data!)
+                    let responseJson: T = try self.processResponse(data: data!)
 
                     DispatchQueue.main.async {
                         callback(responseJson)
@@ -45,8 +54,7 @@ public class BaseNavitiaRequestBuilder {
                 } catch {
                     print("Error with Json: \(error)")
                 }
-            }
-            else {
+            } else {
                 print(statusCode)
             }
         }

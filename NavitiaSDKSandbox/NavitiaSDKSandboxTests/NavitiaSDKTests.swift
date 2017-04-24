@@ -37,4 +37,12 @@ class NavitiaSDKTests: XCTestCase {
         waitForExpectations(timeout: 2)
         Assert.that(result).isEqualTo("Garein")
     }
+
+    func testShouldFormatUrlGivenQueryParameters() {
+        let navitiaSDK:NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "9e304161-bb97-4210-b13d-c71eaf58961c"))
+
+        let url:String = navitiaSDK.autoComplete.places.newRequestBuilder().withQuery("gare").withCount(10).getUrl()
+
+        Assert.that(url).isEqualTo("https://api.navitia.io/v1/places?q=gare&count=10")
+    }
 }
