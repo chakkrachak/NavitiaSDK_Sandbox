@@ -7,10 +7,14 @@ import Foundation
 
 public class NavitiaFeatures {
     let navitiaConfiguration:NavitiaConfiguration
+    // <Generated>
     public let autoComplete: EndpointPlaces
+    // </ Generated>
 
     public init(navitiaConfiguration:NavitiaConfiguration) {
         self.navitiaConfiguration = navitiaConfiguration
+        // <Generated>
         self.autoComplete = EndpointPlaces(navitiaConfiguration: self.navitiaConfiguration)
+        // </ Generated>
     }
 }

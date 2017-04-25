@@ -7,10 +7,14 @@ import Foundation
 
 public class NavitiaEndpoints {
     let navitiaConfiguration:NavitiaConfiguration
+    // <Generated>
     public let places: EndpointPlaces
+    // </ Generated>
 
     public init(navitiaConfiguration:NavitiaConfiguration) {
         self.navitiaConfiguration = navitiaConfiguration
+        // <Generated>
         self.places = EndpointPlaces(navitiaConfiguration: self.navitiaConfiguration)
+        // </ Generated>
     }
 }
