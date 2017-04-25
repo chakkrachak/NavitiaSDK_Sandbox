@@ -14,7 +14,7 @@ class NavitiaSDKTests: XCTestCase {
     }
 
     func testShouldInstantiateGivenValidConfiguration() {
-        let navitiaSDK:NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "takotak"))
+        let navitiaSDK: NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "takotak"))
 
         Assert.that(navitiaSDK).isNotNull()
         Assert.that(navitiaSDK.configuration).isNotNull()
@@ -25,29 +25,57 @@ class NavitiaSDKTests: XCTestCase {
         Assert.that(navitiaSDK.endPoints.places).isNotNull()
     }
 
-    func testShouldRetrieveAutoCompleteResultsGivenValidConfiguration() {
-        let navitiaSDK:NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "9e304161-bb97-4210-b13d-c71eaf58961c"))
+    func testShouldRetrieveEndpointPlacesResultsGivenValidConfiguration() {
+        let navitiaSDK: NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "9e304161-bb97-4210-b13d-c71eaf58961c"))
 
         let expectation = self.expectation(description: "AutoComplete request completed")
-        var result:String = ""
+        var result: String = ""
         navitiaSDK
                 .endPoints.places
                 .newRequestBuilder().withQuery("gare").withCount(10)
                 .rawGet(callback: {
-            (currentAutocompleteResults: [String:AnyObject]) -> Void in
-            result = (currentAutocompleteResults["places"] as! [[String: AnyObject]])[0]["name"] as! String
-            expectation.fulfill()
-        })
+                    (currentAutocompleteResults: [String: AnyObject]) -> Void in
+                    result = (currentAutocompleteResults["places"] as! [[String: AnyObject]])[0]["name"] as! String
+                    expectation.fulfill()
+                })
 
         waitForExpectations(timeout: 2)
         Assert.that(result).isEqualTo("Garein")
     }
 
-    func testShouldFormatUrlGivenQueryParameters() {
-        let navitiaSDK:NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "9e304161-bb97-4210-b13d-c71eaf58961c"))
+    func testShouldRetrieveFeatureAutoCompleteResultsGivenValidConfiguration() {
+        let navitiaSDK: NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "9e304161-bb97-4210-b13d-c71eaf58961c"))
 
-        let url:String = navitiaSDK
+        let expectation = self.expectation(description: "AutoComplete request completed")
+        var result: String = ""
+        navitiaSDK
+                .features.autoComplete
+                .newRequestBuilder().withQuery("gare").withCount(10)
+                .rawGet(callback: {
+                    (currentAutocompleteResults: [String: AnyObject]) -> Void in
+                    result = (currentAutocompleteResults["places"] as! [[String: AnyObject]])[0]["name"] as! String
+                    expectation.fulfill()
+                })
+
+        waitForExpectations(timeout: 2)
+        Assert.that(result).isEqualTo("Garein")
+    }
+
+    func testShouldFormatUrlGivenQueryParametersForEndpointPlaces() {
+        let navitiaSDK: NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "9e304161-bb97-4210-b13d-c71eaf58961c"))
+
+        let url: String = navitiaSDK
                 .endPoints.places
+                .newRequestBuilder().withQuery("gare").withCount(10).getUrl()
+
+        Assert.that(url).isEqualTo("https://api.navitia.io/v1/places?q=gare&count=10")
+    }
+
+    func testShouldFormatUrlGivenQueryParametersForFeatureAutoComplete() {
+        let navitiaSDK: NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "9e304161-bb97-4210-b13d-c71eaf58961c"))
+
+        let url: String = navitiaSDK
+                .features.autoComplete
                 .newRequestBuilder().withQuery("gare").withCount(10).getUrl()
 
         Assert.that(url).isEqualTo("https://api.navitia.io/v1/places?q=gare&count=10")
