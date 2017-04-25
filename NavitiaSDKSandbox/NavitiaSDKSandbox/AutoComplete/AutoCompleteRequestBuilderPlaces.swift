@@ -13,7 +13,7 @@ public class AutoCompleteRequestBuilderPlaces : BaseNavitiaRequestBuilder, Proto
     // </ Generated>
 
     // <Generated>
-    public func get(callback: @escaping ([String:AnyObject]) -> (Void)) {
+    public func rawGet(callback: @escaping ([String:AnyObject]) -> (Void)) {
         return self.genericGet(callback: callback)
     }
     // </ Generated>

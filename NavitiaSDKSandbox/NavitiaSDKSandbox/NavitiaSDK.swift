@@ -7,10 +7,12 @@ import Foundation
 
 public class NavitiaSDK {
     let configuration:NavitiaConfiguration
-    let autoComplete:AutoCompleteFeatureManager
+    let endPoints:NavitiaEndpoints
+    let features:NavitiaFeatures
 
     public init(configuration:NavitiaConfiguration) {
         self.configuration = configuration
-        self.autoComplete = AutoCompleteFeatureManager(navitiaConfiguration: self.configuration)
+        self.endPoints = NavitiaEndpoints(navitiaConfiguration: self.configuration)
+        self.features = NavitiaFeatures(navitiaConfiguration: self.configuration)
     }
 }
