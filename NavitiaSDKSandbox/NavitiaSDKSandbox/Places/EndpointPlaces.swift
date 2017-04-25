@@ -5,14 +5,14 @@
 
 import Foundation
 
-public class AutoCompleteFeatureResourcePlaces {
+public class EndpointPlaces {
     let navitiaConfiguration: NavitiaConfiguration
 
     public init(navitiaConfiguration: NavitiaConfiguration) {
         self.navitiaConfiguration = navitiaConfiguration
     }
 
-    public func newRequestBuilder() -> AutoCompleteRequestBuilderPlaces {
-        return AutoCompleteRequestBuilderPlaces(navitiaConfiguration: self.navitiaConfiguration)
+    public func newRequestBuilder() -> EndpointRequestBuilderPlaces {
+        return EndpointRequestBuilderPlaces(navitiaConfiguration: self.navitiaConfiguration)
     }
 }

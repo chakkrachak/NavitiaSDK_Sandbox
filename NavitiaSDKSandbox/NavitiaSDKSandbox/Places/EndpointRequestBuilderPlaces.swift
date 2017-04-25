@@ -5,7 +5,7 @@
 
 import Foundation
 
-public class AutoCompleteRequestBuilderPlaces : BaseNavitiaRequestBuilder, ProtocolNavitiaRequestBuilder {
+public class EndpointRequestBuilderPlaces: BaseNavitiaRequestBuilder, ProtocolNavitiaRequestBuilder {
     // <Generated>
     public required init(navitiaConfiguration: NavitiaConfiguration) {
         super.init(navitiaConfiguration: navitiaConfiguration, resourceUri: "/places")
@@ -19,14 +19,14 @@ public class AutoCompleteRequestBuilderPlaces : BaseNavitiaRequestBuilder, Proto
     // </ Generated>
 
     // <Generated>
-    public func withQuery(_ q: String) -> AutoCompleteRequestBuilderPlaces {
+    public func withQuery(_ q: String) -> EndpointRequestBuilderPlaces {
         queryParameters["q"] = q
         return self
     }
     // </ Generated>
 
     // <Generated>
-    public func withCount(_ count: Int) -> AutoCompleteRequestBuilderPlaces {
+    public func withCount(_ count: Int) -> EndpointRequestBuilderPlaces {
         queryParameters["count"] = count.description
         return self
     }
