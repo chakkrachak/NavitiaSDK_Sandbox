@@ -19,7 +19,7 @@ public class EndpointRequestBuilderPlaces: BaseNavitiaRequestBuilder, ProtocolNa
     // </ Generated>
 
     // <Generated>
-    public func withQuery(_ q: String) -> EndpointRequestBuilderPlaces {
+    public func withQ(_ q: String) -> EndpointRequestBuilderPlaces {
         queryParameters["q"] = q
         return self
     }

@@ -32,7 +32,7 @@ class NavitiaSDKTests: XCTestCase {
         var result: String = ""
         navitiaSDK
                 .endPoints.places
-                .newRequestBuilder().withQuery("gare").withCount(10)
+                .newRequestBuilder().withQ("gare").withCount(10)
                 .rawGet(callback: {
                     (currentAutocompleteResults: [String: AnyObject]) -> Void in
                     result = (currentAutocompleteResults["places"] as! [[String: AnyObject]])[0]["name"] as! String
@@ -50,7 +50,7 @@ class NavitiaSDKTests: XCTestCase {
         var result: String = ""
         navitiaSDK
                 .features.autoComplete
-                .newRequestBuilder().withQuery("gare").withCount(10)
+                .newRequestBuilder().withQ("gare").withCount(10)
                 .rawGet(callback: {
                     (currentAutocompleteResults: [String: AnyObject]) -> Void in
                     result = (currentAutocompleteResults["places"] as! [[String: AnyObject]])[0]["name"] as! String
@@ -66,7 +66,7 @@ class NavitiaSDKTests: XCTestCase {
 
         let url: String = navitiaSDK
                 .endPoints.places
-                .newRequestBuilder().withQuery("gare").withCount(10).getUrl()
+                .newRequestBuilder().withQ("gare").withCount(10).getUrl()
 
         Assert.that(url).isEqualTo("https://api.navitia.io/v1/places?q=gare&count=10")
     }
@@ -76,7 +76,7 @@ class NavitiaSDKTests: XCTestCase {
 
         let url: String = navitiaSDK
                 .features.autoComplete
-                .newRequestBuilder().withQuery("gare").withCount(10).getUrl()
+                .newRequestBuilder().withQ("gare").withCount(10).getUrl()
 
         Assert.that(url).isEqualTo("https://api.navitia.io/v1/places?q=gare&count=10")
     }
