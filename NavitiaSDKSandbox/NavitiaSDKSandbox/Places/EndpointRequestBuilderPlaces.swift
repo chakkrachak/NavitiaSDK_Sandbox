@@ -13,8 +13,12 @@ public class EndpointRequestBuilderPlaces: BaseNavitiaRequestBuilder, ProtocolNa
     // </ Generated>
 
     // <Generated>
-    public func rawGet(callback: @escaping ([String:AnyObject]) -> (Void)) {
-        return self.genericGet(callback: callback)
+    public func get(callback: @escaping (EndpointResponsePlaces) -> (Void)) {
+        return self.genericGet(processResponseHandler: { (data: Data) -> EndpointResponsePlaces in
+            let json: [String: AnyObject] = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: AnyObject]
+
+            return EndpointResponsePlaces(json: json)!
+        }, callback: callback)
     }
     // </ Generated>
 

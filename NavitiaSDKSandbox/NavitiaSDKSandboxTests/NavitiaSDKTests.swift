@@ -43,6 +43,24 @@ class NavitiaSDKTests: XCTestCase {
         Assert.that(result).isEqualTo("Garein")
     }
 
+    func testShouldRetrieveEndpointPlacesObjectResultsGivenValidConfiguration() {
+        let navitiaSDK: NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "9e304161-bb97-4210-b13d-c71eaf58961c"))
+
+        let expectation = self.expectation(description: "AutoComplete request completed")
+        var result: String = ""
+        navitiaSDK
+                .endPoints.places
+                .newRequestBuilder().withQ("gare").withCount(10)
+                .get(callback: {
+                    (currentAutocompleteResults: EndpointResponsePlaces) -> Void in
+                    result = currentAutocompleteResults.places[0].name
+                    expectation.fulfill()
+                })
+
+        waitForExpectations(timeout: 2)
+        Assert.that(result).isEqualTo("Garein")
+    }
+
     func testShouldRetrieveFeatureAutoCompleteResultsGivenValidConfiguration() {
         let navitiaSDK: NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "9e304161-bb97-4210-b13d-c71eaf58961c"))
 

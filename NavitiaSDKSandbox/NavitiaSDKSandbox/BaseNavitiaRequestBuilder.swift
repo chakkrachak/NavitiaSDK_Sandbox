@@ -8,7 +8,7 @@ import Foundation
 public class BaseNavitiaRequestBuilder {
     var navitiaConfiguration: NavitiaConfiguration
     var resourceUri: String
-    var queryParameters:[String: String]
+    var queryParameters: [String: String]
 
     public init(navitiaConfiguration: NavitiaConfiguration, resourceUri: String) {
         self.navitiaConfiguration = navitiaConfiguration
@@ -17,7 +17,7 @@ public class BaseNavitiaRequestBuilder {
     }
 
     public func getUrl() -> String {
-        var queryParametersResult:[String]=[]
+        var queryParametersResult: [String] = []
         for (key, value) in self.queryParameters {
             queryParametersResult.append(key + "=" + value)
         }
@@ -29,11 +29,15 @@ public class BaseNavitiaRequestBuilder {
         return urlResult
     }
 
-    func processResponse<T>(data: Data) throws -> T {
-        return try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! T
+    public func rawGet(callback: @escaping ([String: AnyObject]) -> (Void)) {
+        return self.genericGet(
+                processResponseHandler: { (data: Data) -> [String: AnyObject] in
+                    return try JSONSerialization.jsonObject(with: data, options: .allowFragments) as! [String: AnyObject]
+                },
+                callback: callback)
     }
 
-    func genericGet<T>(callback: @escaping (T) -> (Void)) {
+    func genericGet<T>(processResponseHandler: @escaping (Data) throws -> T, callback: @escaping (T) -> (Void)) {
         let requestURL: NSURL = NSURL(string: getUrl().addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!)!
         let urlRequest: NSMutableURLRequest = NSMutableURLRequest(url: requestURL as URL)
         urlRequest.addValue(self.navitiaConfiguration.token, forHTTPHeaderField: "Authorization")
@@ -46,7 +50,7 @@ public class BaseNavitiaRequestBuilder {
 
             if (statusCode == 200) {
                 do {
-                    let responseJson: T = try self.processResponse(data: data!)
+                    let responseJson: T = try processResponseHandler(data!)
 
                     DispatchQueue.main.async {
                         callback(responseJson)
