@@ -17,4 +17,17 @@ public class NavitiaSDKTest {
         assertNotNull(navitiaSDK.getFeatures());
         assertNotNull(navitiaSDK.getFeatures().getAutoComplete());
     }
+
+    @Test
+    public void shouldFormatUrlGivenQueryParametersForEndpointPlaces() throws Exception {
+        NavitiaSDK navitiaSDK = new NavitiaSDK(new NavitiaConfiguration("9e304161-bb97-4210-b13d-c71eaf58961c"));
+
+        String url = navitiaSDK.getEndpoints().getPlaces()
+                .newRequestBuilder()
+                .withQ("gare")
+                .withCount(10)
+                .getUrl();
+
+        assertEquals("https://api.navitia.io/v1/places?count=10&q=gare", url);
+    }
 }

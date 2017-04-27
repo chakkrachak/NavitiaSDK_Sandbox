@@ -5,7 +5,7 @@
 
 import Foundation
 
-public class EndpointRequestBuilderPlaces: BaseNavitiaRequestBuilder, ProtocolNavitiaRequestBuilder {
+public class EndpointRequestBuilderPlaces: BaseNavitiaRequestBuilder {
     // <Generated>
     public required init(navitiaConfiguration: NavitiaConfiguration) {
         super.init(navitiaConfiguration: navitiaConfiguration, resourceUri: "/places")
