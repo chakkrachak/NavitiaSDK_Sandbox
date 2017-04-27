@@ -13,6 +13,8 @@ public class NavitiaSDKTest {
         assertNotNull(navitiaSDK.getConfiguration());
         assertEquals("takotak", navitiaSDK.getConfiguration().getToken());
         assertNotNull(navitiaSDK.getEndpoints());
+        assertNotNull(navitiaSDK.getEndpoints().getPlaces());
         assertNotNull(navitiaSDK.getFeatures());
+        assertNotNull(navitiaSDK.getFeatures().getAutoComplete());
     }
 }
