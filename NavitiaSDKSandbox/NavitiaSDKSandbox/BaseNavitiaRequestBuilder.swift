@@ -8,12 +8,16 @@ import Foundation
 public class BaseNavitiaRequestBuilder {
     var navitiaConfiguration: NavitiaConfiguration
     var resourceUri: String
-    var queryParameters: [String: String]
+    private var queryParameters: [String: String]
 
     public init(navitiaConfiguration: NavitiaConfiguration, resourceUri: String) {
         self.navitiaConfiguration = navitiaConfiguration
         self.resourceUri = resourceUri
         self.queryParameters = [:]
+    }
+
+    public func addQueryParameter(key: String, value: String) {
+        queryParameters[key] = value
     }
 
     public func getUrl() -> String {

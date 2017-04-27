@@ -24,14 +24,14 @@ public class EndpointRequestBuilderPlaces: BaseNavitiaRequestBuilder {
 
     // <Generated>
     public func withQ(_ q: String) -> EndpointRequestBuilderPlaces {
-        queryParameters["q"] = q
+        addQueryParameter(key: "q", value: q)
         return self
     }
     // </ Generated>
 
     // <Generated>
     public func withCount(_ count: Int) -> EndpointRequestBuilderPlaces {
-        queryParameters["count"] = count.description
+        addQueryParameter(key: "count", value: count.description)
         return self
     }
     // </ Generated>
