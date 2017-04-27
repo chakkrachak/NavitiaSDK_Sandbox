@@ -21,8 +21,8 @@ class NavitiaSDKTests: XCTestCase {
         Assert.that(navitiaSDK.configuration.token).isEqualTo("takotak")
         Assert.that(navitiaSDK.features).isNotNull()
         Assert.that(navitiaSDK.features.autoComplete).isNotNull()
-        Assert.that(navitiaSDK.endPoints).isNotNull()
-        Assert.that(navitiaSDK.endPoints.places).isNotNull()
+        Assert.that(navitiaSDK.endpoints).isNotNull()
+        Assert.that(navitiaSDK.endpoints.places).isNotNull()
     }
 
     func testShouldRetrieveEndpointPlacesResultsGivenValidConfiguration() {
@@ -31,7 +31,7 @@ class NavitiaSDKTests: XCTestCase {
         let expectation = self.expectation(description: "AutoComplete request completed")
         var result: String = ""
         navitiaSDK
-                .endPoints.places
+                .endpoints.places
                 .newRequestBuilder().withQ("gare").withCount(10)
                 .rawGet(callback: {
                     (currentAutocompleteResults: [String: AnyObject]) -> Void in
@@ -49,7 +49,7 @@ class NavitiaSDKTests: XCTestCase {
         let expectation = self.expectation(description: "AutoComplete request completed")
         var result: String = ""
         navitiaSDK
-                .endPoints.places
+                .endpoints.places
                 .newRequestBuilder().withQ("gare").withCount(10)
                 .get(callback: {
                     (currentAutocompleteResults: EndpointResponsePlaces) -> Void in
@@ -83,7 +83,7 @@ class NavitiaSDKTests: XCTestCase {
         let navitiaSDK: NavitiaSDK = NavitiaSDK(configuration: NavitiaConfiguration(token: "9e304161-bb97-4210-b13d-c71eaf58961c"))
 
         let url: String = navitiaSDK
-                .endPoints.places
+                .endpoints.places
                 .newRequestBuilder().withQ("gare").withCount(10).getUrl()
 
         Assert.that(url).isEqualTo("https://api.navitia.io/v1/places?q=gare&count=10")

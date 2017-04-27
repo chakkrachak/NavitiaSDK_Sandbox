@@ -7,12 +7,12 @@ import Foundation
 
 public class NavitiaSDK {
     let configuration:NavitiaConfiguration
-    let endPoints:NavitiaEndpoints
+    let endpoints:NavitiaEndpoints
     let features:NavitiaFeatures
 
     public init(configuration:NavitiaConfiguration) {
         self.configuration = configuration
-        self.endPoints = NavitiaEndpoints(navitiaConfiguration: self.configuration)
+        self.endpoints = NavitiaEndpoints(navitiaConfiguration: self.configuration)
         self.features = NavitiaFeatures(navitiaConfiguration: self.configuration)
     }
 }
