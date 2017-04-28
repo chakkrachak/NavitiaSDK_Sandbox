@@ -30,4 +30,9 @@ public abstract class BaseNavitiaRequestBuilder {
                 + this.resourceUri
                 + "?" + queryParametersResult.stream().collect(Collectors.joining("&"));
     }
+
+    interface BaseRequestCallback { void callback(String response); }
+    public void rawGet(BaseRequestCallback baseRequestCallback) {
+        baseRequestCallback.callback("Garein");
+    }
 }

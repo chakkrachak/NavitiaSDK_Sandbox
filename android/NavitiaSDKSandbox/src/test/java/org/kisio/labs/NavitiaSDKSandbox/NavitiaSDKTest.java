@@ -19,6 +19,20 @@ public class NavitiaSDKTest {
     }
 
     @Test
+    public void shouldRetrieveEndpointPlacesResultsGivenValidConfiguration() throws Exception {
+        NavitiaSDK navitiaSDK = new NavitiaSDK(new NavitiaConfiguration("9e304161-bb97-4210-b13d-c71eaf58961c"));
+
+        final String[] result = new String[1];
+        navitiaSDK.getEndpoints().getPlaces()
+                .newRequestBuilder().withQ("gare").withCount(10)
+                .rawGet((String response) -> {
+                    result[0] = response;
+                });
+
+        assertEquals("Garein", result[0]);
+    }
+
+    @Test
     public void shouldFormatUrlGivenQueryParametersForEndpointPlaces() throws Exception {
         NavitiaSDK navitiaSDK = new NavitiaSDK(new NavitiaConfiguration("9e304161-bb97-4210-b13d-c71eaf58961c"));
 
