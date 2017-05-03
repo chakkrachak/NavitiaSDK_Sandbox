@@ -1,23 +1,20 @@
 package org.kisio.labs.NavitiaSDKSandbox;
 
-import java.io.FileReader;
 import java.io.IOException;
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
 
 import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
+import com.google.gson.GsonBuilder;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.kisio.labs.NavitiaSDKSandbox.Places.EndpointResponsePlaces;
 
 public abstract class BaseNavitiaRequestBuilder {
     private NavitiaConfiguration navitiaConfiguration;
@@ -59,5 +56,21 @@ public abstract class BaseNavitiaRequestBuilder {
         JSONObject jsonObject = (JSONObject) parser.parse(jsonResponse);
 
         baseRequestCallback.callback(jsonObject);
+    }
+
+    interface ModelRequestCallback { void callback(EndpointResponsePlaces endpointResponsePlaces); }
+    public void get(ModelRequestCallback modelRequestCallback) throws IOException, ParseException {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(this.getUrl())
+                .addHeader("Authorization", this.navitiaConfiguration.getToken())
+                .build();
+        Response response = client.newCall(request).execute();
+        String jsonResponse = response.body().string();
+
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+
+        modelRequestCallback.callback(gson.fromJson(jsonResponse, EndpointResponsePlaces.class));
     }
 }

@@ -3,6 +3,7 @@ package org.kisio.labs.NavitiaSDKSandbox;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.junit.Test;
+import org.kisio.labs.NavitiaSDKSandbox.Places.EndpointResponsePlaces;
 
 import static org.junit.Assert.*;
 
@@ -29,6 +30,20 @@ public class NavitiaSDKTest {
                 .newRequestBuilder().withQ("gare").withCount(10)
                 .rawGet((JSONObject jsonObject) -> {
                     result[0] = (String) ((JSONObject)((JSONArray) jsonObject.get("places")).get(0)).get("name");
+                });
+
+        assertEquals("Garein", result[0]);
+    }
+
+    @Test
+    public void shouldRetrieveEndpointPlacesObjectResultsGivenValidConfiguration() throws Exception {
+        NavitiaSDK navitiaSDK = new NavitiaSDK(new NavitiaConfiguration("9e304161-bb97-4210-b13d-c71eaf58961c"));
+
+        final String[] result = new String[1];
+        navitiaSDK.getEndpoints().getPlaces()
+                .newRequestBuilder().withQ("gare").withCount(10)
+                .get((EndpointResponsePlaces endpointResponsePlaces) -> {
+                    result[0] = endpointResponsePlaces.getPlaces().get(0).getName();
                 });
 
         assertEquals("Garein", result[0]);
