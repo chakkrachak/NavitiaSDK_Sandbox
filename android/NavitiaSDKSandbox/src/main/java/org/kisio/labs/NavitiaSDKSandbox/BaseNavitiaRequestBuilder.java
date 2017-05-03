@@ -1,9 +1,23 @@
 package org.kisio.labs.NavitiaSDKSandbox;
 
+import java.io.FileReader;
+import java.io.IOException;
+import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Hashtable;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
+
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public abstract class BaseNavitiaRequestBuilder {
     private NavitiaConfiguration navitiaConfiguration;
@@ -32,7 +46,21 @@ public abstract class BaseNavitiaRequestBuilder {
     }
 
     interface BaseRequestCallback { void callback(String response); }
-    public void rawGet(BaseRequestCallback baseRequestCallback) {
-        baseRequestCallback.callback("Garein");
+    public void rawGet(BaseRequestCallback baseRequestCallback) throws IOException, ParseException {
+        OkHttpClient client = new OkHttpClient();
+        Request request = new Request.Builder()
+                .url(this.getUrl())
+                .addHeader("Authorization", this.navitiaConfiguration.getToken())
+                .build();
+        Response response = client.newCall(request).execute();
+        String jsonResponse = response.body().string();
+
+//        Gson gson = new Gson();
+//        Type stringStringMap = new TypeToken<Map<String, Object>>(){}.getType();
+//        Map<String,Object> map = gson.fromJson(jsonResponse, stringStringMap);
+        JSONParser parser = new JSONParser();
+        JSONObject jsonObject = (JSONObject) parser.parse(jsonResponse);
+
+        baseRequestCallback.callback((String) ((JSONObject)((JSONArray) jsonObject.get("places")).get(0)).get("name"));
     }
 }
