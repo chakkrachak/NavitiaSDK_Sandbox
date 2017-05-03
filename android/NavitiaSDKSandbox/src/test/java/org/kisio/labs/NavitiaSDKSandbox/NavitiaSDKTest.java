@@ -1,5 +1,7 @@
 package org.kisio.labs.NavitiaSDKSandbox;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -25,8 +27,8 @@ public class NavitiaSDKTest {
         final String[] result = new String[1];
         navitiaSDK.getEndpoints().getPlaces()
                 .newRequestBuilder().withQ("gare").withCount(10)
-                .rawGet((String response) -> {
-                    result[0] = response;
+                .rawGet((JSONObject jsonObject) -> {
+                    result[0] = (String) ((JSONObject)((JSONArray) jsonObject.get("places")).get(0)).get("name");
                 });
 
         assertEquals("Garein", result[0]);

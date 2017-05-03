@@ -45,7 +45,7 @@ public abstract class BaseNavitiaRequestBuilder {
                 + "?" + queryParametersResult.stream().collect(Collectors.joining("&"));
     }
 
-    interface BaseRequestCallback { void callback(String response); }
+    interface BaseRequestCallback { void callback(JSONObject jsonObject); }
     public void rawGet(BaseRequestCallback baseRequestCallback) throws IOException, ParseException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
@@ -54,13 +54,10 @@ public abstract class BaseNavitiaRequestBuilder {
                 .build();
         Response response = client.newCall(request).execute();
         String jsonResponse = response.body().string();
-
-//        Gson gson = new Gson();
-//        Type stringStringMap = new TypeToken<Map<String, Object>>(){}.getType();
-//        Map<String,Object> map = gson.fromJson(jsonResponse, stringStringMap);
         JSONParser parser = new JSONParser();
+
         JSONObject jsonObject = (JSONObject) parser.parse(jsonResponse);
 
-        baseRequestCallback.callback((String) ((JSONObject)((JSONArray) jsonObject.get("places")).get(0)).get("name"));
+        baseRequestCallback.callback(jsonObject);
     }
 }
