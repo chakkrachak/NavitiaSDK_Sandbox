@@ -1,5 +1,7 @@
 package org.kisio.labs.NavitiaSDKSandbox.Places;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
@@ -13,7 +15,7 @@ import java.io.IOException;
 
 public class EndpointRequestBuilderPlaces extends BaseNavitiaRequestBuilder {
     public EndpointRequestBuilderPlaces(NavitiaConfiguration navitiaConfiguration) {
-        super(navitiaConfiguration, "/places");
+        super(navitiaConfiguration, "/places", EndpointResponsePlaces.class);
     }
 
     public EndpointRequestBuilderPlaces withQ(String q) {
@@ -24,5 +26,10 @@ public class EndpointRequestBuilderPlaces extends BaseNavitiaRequestBuilder {
     public EndpointRequestBuilderPlaces withCount(int count) {
         this.addQueryParameter("count", String.valueOf(count));
         return this;
+    }
+
+    public interface PlacesRequestCallback { void callback(EndpointResponsePlaces endpointResponsePlaces); }
+    public void get(PlacesRequestCallback placesRequestCallback) throws IOException, ParseException {
+        get((ModelRequestCallback<EndpointResponsePlaces>) endpointResponsePlaces -> placesRequestCallback.callback(endpointResponsePlaces));
     }
 }

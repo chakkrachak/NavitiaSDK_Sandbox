@@ -16,15 +16,17 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.kisio.labs.NavitiaSDKSandbox.Places.EndpointResponsePlaces;
 
-public abstract class BaseNavitiaRequestBuilder {
+public abstract class BaseNavitiaRequestBuilder<T> {
     private NavitiaConfiguration navitiaConfiguration;
     private String resourceUri;
     private Hashtable<String, String> queryParameters;
+    final Class<T> typeParameterClass;
 
-    protected BaseNavitiaRequestBuilder(NavitiaConfiguration navitiaConfiguration, String resourceUri) {
+    protected BaseNavitiaRequestBuilder(NavitiaConfiguration navitiaConfiguration, String resourceUri, Class<T> typeParameterClass) {
         this.navitiaConfiguration = navitiaConfiguration;
         this.resourceUri = resourceUri;
         this.queryParameters = new Hashtable<String, String>();
+        this.typeParameterClass = typeParameterClass;
     }
 
     public void addQueryParameter(String key, String value) {
@@ -58,8 +60,8 @@ public abstract class BaseNavitiaRequestBuilder {
         baseRequestCallback.callback(jsonObject);
     }
 
-    interface ModelRequestCallback { void callback(EndpointResponsePlaces endpointResponsePlaces); }
-    public void get(ModelRequestCallback modelRequestCallback) throws IOException, ParseException {
+    public interface ModelRequestCallback<T> { void callback(T endpointResponseModel); }
+    public void get(ModelRequestCallback<T> modelRequestCallback) throws IOException, ParseException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(this.getUrl())
@@ -71,6 +73,6 @@ public abstract class BaseNavitiaRequestBuilder {
         GsonBuilder builder = new GsonBuilder();
         Gson gson = builder.create();
 
-        modelRequestCallback.callback(gson.fromJson(jsonResponse, EndpointResponsePlaces.class));
+        modelRequestCallback.callback(gson.fromJson(jsonResponse, typeParameterClass));
     }
 }
