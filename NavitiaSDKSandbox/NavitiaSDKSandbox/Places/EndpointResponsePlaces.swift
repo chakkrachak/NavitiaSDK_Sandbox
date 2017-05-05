@@ -158,9 +158,9 @@ extension CreatableFromJSON {
 
 extension Date {
     // Date formatters are cached because they are expensive to create. All cache access is performed on a serial queue.
-    private static let cacheQueue = DispatchQueue(label: "DateFormatterCacheQueue")
-    private static var formatterCache = [String: DateFormatter]()
-    private static func dateFormatter(with format: String) -> DateFormatter {
+    fileprivate static let cacheQueue = DispatchQueue(label: "DateFormatterCacheQueue")
+    fileprivate static var formatterCache = [String: DateFormatter]()
+    fileprivate static func dateFormatter(with format: String) -> DateFormatter {
         if let formatter = formatterCache[format] { return formatter }
         let formatter = DateFormatter()
         formatter.dateFormat = format

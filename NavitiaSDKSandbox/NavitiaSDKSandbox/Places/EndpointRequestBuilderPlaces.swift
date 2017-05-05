@@ -5,7 +5,7 @@
 
 import Foundation
 
-public class EndpointRequestBuilderPlaces: BaseNavitiaRequestBuilder {
+open class EndpointRequestBuilderPlaces: BaseNavitiaRequestBuilder {
     // <Generated>
     public required init(navitiaConfiguration: NavitiaConfiguration) {
         super.init(navitiaConfiguration: navitiaConfiguration, resourceUri: "/places")
@@ -23,14 +23,14 @@ public class EndpointRequestBuilderPlaces: BaseNavitiaRequestBuilder {
     // </ Generated>
 
     // <Generated>
-    public func withQ(_ q: String) -> EndpointRequestBuilderPlaces {
+    open func withQ(_ q: String) -> EndpointRequestBuilderPlaces {
         addQueryParameter(key: "q", value: q)
         return self
     }
     // </ Generated>
 
     // <Generated>
-    public func withCount(_ count: Int) -> EndpointRequestBuilderPlaces {
+    open func withCount(_ count: Int) -> EndpointRequestBuilderPlaces {
         addQueryParameter(key: "count", value: count.description)
         return self
     }

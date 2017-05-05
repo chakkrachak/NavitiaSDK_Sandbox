@@ -197,17 +197,19 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0810;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = "Chakkra CHAK";
 				TargetAttributes = {
 					FED9D91E1EA8B4D900295A8C = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = AK7DPF549M;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 					FED9D9271EA8B4D900295A8C = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = AK7DPF549M;
+						LastSwiftMigration = 0830;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -310,6 +312,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -363,6 +366,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -472,6 +476,7 @@
 				FED9D9351EA8B4D900295A8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		FED9D9361EA8B4D900295A8C /* Build configuration list for PBXNativeTarget "NavitiaSDKSandboxTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +485,7 @@
 				FED9D9381EA8B4D900295A8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

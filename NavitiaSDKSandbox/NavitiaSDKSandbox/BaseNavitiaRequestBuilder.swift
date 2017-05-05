@@ -5,10 +5,10 @@
 
 import Foundation
 
-public class BaseNavitiaRequestBuilder {
+open class BaseNavitiaRequestBuilder {
     var navitiaConfiguration: NavitiaConfiguration
     var resourceUri: String
-    private var queryParameters: [String: String]
+    fileprivate var queryParameters: [String: String]
 
     public init(navitiaConfiguration: NavitiaConfiguration, resourceUri: String) {
         self.navitiaConfiguration = navitiaConfiguration
@@ -16,17 +16,17 @@ public class BaseNavitiaRequestBuilder {
         self.queryParameters = [:]
     }
 
-    public func addQueryParameter(key: String, value: String) {
+    open func addQueryParameter(key: String, value: String) {
         queryParameters[key] = value
     }
 
-    public func getUrl() -> String {
+    open func getUrl() -> String {
         var queryParametersResult: [String] = []
         for (key, value) in self.queryParameters {
             queryParametersResult.append(key + "=" + value)
         }
 
-        var urlResult: String = self.navitiaConfiguration.baseUrl
+        let urlResult: String = self.navitiaConfiguration.baseUrl
                 + self.resourceUri
                 + "?" + queryParametersResult.joined(separator: "&")
 

@@ -5,14 +5,14 @@
 
 import Foundation
 
-public class EndpointPlaces {
+open class EndpointPlaces {
     let navitiaConfiguration: NavitiaConfiguration
 
     public init(navitiaConfiguration: NavitiaConfiguration) {
         self.navitiaConfiguration = navitiaConfiguration
     }
 
-    public func newRequestBuilder() -> EndpointRequestBuilderPlaces {
+    open func newRequestBuilder() -> EndpointRequestBuilderPlaces {
         return EndpointRequestBuilderPlaces(navitiaConfiguration: self.navitiaConfiguration)
     }
 }

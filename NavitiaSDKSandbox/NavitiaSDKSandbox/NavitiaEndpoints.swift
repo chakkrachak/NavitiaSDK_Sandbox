@@ -5,10 +5,10 @@
 
 import Foundation
 
-public class NavitiaEndpoints {
+open class NavitiaEndpoints {
     let navitiaConfiguration:NavitiaConfiguration
     // <Generated>
-    public let places: EndpointPlaces
+    open let places: EndpointPlaces
     // </ Generated>
 
     public init(navitiaConfiguration:NavitiaConfiguration) {

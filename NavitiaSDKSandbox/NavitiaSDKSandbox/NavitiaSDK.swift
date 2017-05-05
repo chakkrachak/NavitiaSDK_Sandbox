@@ -5,7 +5,7 @@
 
 import Foundation
 
-public class NavitiaSDK {
+open class NavitiaSDK {
     let configuration:NavitiaConfiguration
     let endpoints:NavitiaEndpoints
     let features:NavitiaFeatures

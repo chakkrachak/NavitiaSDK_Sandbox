@@ -5,10 +5,10 @@
 
 import Foundation
 
-public class NavitiaFeatures {
+open class NavitiaFeatures {
     let navitiaConfiguration:NavitiaConfiguration
     // <Generated>
-    public let autoComplete: EndpointPlaces
+    open let autoComplete: EndpointPlaces
     // </ Generated>
 
     public init(navitiaConfiguration:NavitiaConfiguration) {

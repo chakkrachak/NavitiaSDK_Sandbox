@@ -5,7 +5,7 @@
 
 import Foundation
 
-public class NavitiaConfiguration {
+open class NavitiaConfiguration {
     let token:String
     let baseUrl:String = "https://api.navitia.io/v1"
 
