@@ -46,15 +46,9 @@ public abstract class BaseNavitiaRequestBuilder<T> {
 
     interface BaseRequestCallback { void callback(JSONObject jsonObject); }
     public void rawGet(BaseRequestCallback baseRequestCallback) throws IOException, ParseException {
-        OkHttpClient client = new OkHttpClient();
-        Request request = new Request.Builder()
-                .url(this.getUrl())
-                .addHeader("Authorization", this.navitiaConfiguration.getToken())
-                .build();
-        Response response = client.newCall(request).execute();
-        String jsonResponse = response.body().string();
-        JSONParser parser = new JSONParser();
+        String jsonResponse = this.getResponse();
 
+        JSONParser parser = new JSONParser();
         JSONObject jsonObject = (JSONObject) parser.parse(jsonResponse);
 
         baseRequestCallback.callback(jsonObject);
@@ -62,17 +56,21 @@ public abstract class BaseNavitiaRequestBuilder<T> {
 
     public interface ModelRequestCallback<T> { void callback(T endpointResponseModel); }
     public void get(ModelRequestCallback<T> modelRequestCallback) throws IOException, ParseException {
+        String jsonResponse = this.getResponse();
+
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+
+        modelRequestCallback.callback(gson.fromJson(jsonResponse, typeParameterClass));
+    }
+
+    private String getResponse() throws IOException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
                 .url(this.getUrl())
                 .addHeader("Authorization", this.navitiaConfiguration.getToken())
                 .build();
         Response response = client.newCall(request).execute();
-        String jsonResponse = response.body().string();
-
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-
-        modelRequestCallback.callback(gson.fromJson(jsonResponse, typeParameterClass));
+        return response.body().string();
     }
 }
