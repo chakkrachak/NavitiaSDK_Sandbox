@@ -28,11 +28,32 @@ public class NavitiaSDKTest {
         final String[] result = new String[1];
         navitiaSDK.getEndpoints().getPlaces()
                 .newRequestBuilder().withQ("gare").withCount(10)
-                .rawGet((JSONObject jsonObject) -> {
-                    result[0] = (String) ((JSONObject)((JSONArray) jsonObject.get("places")).get(0)).get("name");
-                });
+                .rawGet(
+                        (JSONObject jsonObject) -> {
+                            result[0] = (String) ((JSONObject) ((JSONArray) jsonObject.get("places")).get(0)).get("name");
+                        },
+                        (ResourceRequestError resourceRequestError) -> {
+                        }
+                );
 
         assertEquals("Garein", result[0]);
+    }
+
+    @Test
+    public void shouldLaunchErrorGivenInvalidConfiguration() throws Exception {
+        NavitiaSDK navitiaSDK = new NavitiaSDK(new NavitiaConfiguration(""));
+
+        final String[] resultError = new String[1];
+        navitiaSDK.getEndpoints().getPlaces()
+                .newRequestBuilder().withQ("gare").withCount(10)
+                .rawGet(
+                        (JSONObject jsonObject) -> {
+                        },
+                        (ResourceRequestError resourceRequestError) -> {
+                            resultError[0] = "TOTO";
+                        });
+
+        assertEquals("Garein", resultError[0]);
     }
 
     @Test
@@ -42,9 +63,13 @@ public class NavitiaSDKTest {
         final String[] result = new String[1];
         navitiaSDK.getEndpoints().getPlaces()
                 .newRequestBuilder().withQ("gare").withCount(10)
-                .get((EndpointResponsePlaces endpointResponsePlaces) -> {
-                    result[0] = endpointResponsePlaces.getPlaces().get(0).getName();
-                });
+                .get(
+                        (EndpointResponsePlaces endpointResponsePlaces) -> {
+                            result[0] = endpointResponsePlaces.getPlaces().get(0).getName();
+                        },
+                        (ResourceRequestError resourceRequestError) -> {
+                        }
+                );
 
         assertEquals("Garein", result[0]);
     }

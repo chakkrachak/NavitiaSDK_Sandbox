@@ -44,26 +44,6 @@ public abstract class BaseNavitiaRequestBuilder<T> {
                 + "?" + queryParametersResult.stream().collect(Collectors.joining("&"));
     }
 
-    interface BaseRequestCallback { void callback(JSONObject jsonObject); }
-    public void rawGet(BaseRequestCallback baseRequestCallback) throws IOException, ParseException {
-        String jsonResponse = this.getResponse();
-
-        JSONParser parser = new JSONParser();
-        JSONObject jsonObject = (JSONObject) parser.parse(jsonResponse);
-
-        baseRequestCallback.callback(jsonObject);
-    }
-
-    public interface ModelRequestCallback<T> { void callback(T endpointResponseModel); }
-    public void get(ModelRequestCallback<T> modelRequestCallback) throws IOException, ParseException {
-        String jsonResponse = this.getResponse();
-
-        GsonBuilder builder = new GsonBuilder();
-        Gson gson = builder.create();
-
-        modelRequestCallback.callback(gson.fromJson(jsonResponse, typeParameterClass));
-    }
-
     private String getResponse() throws IOException {
         OkHttpClient client = new OkHttpClient();
         Request request = new Request.Builder()
@@ -72,5 +52,32 @@ public abstract class BaseNavitiaRequestBuilder<T> {
                 .build();
         Response response = client.newCall(request).execute();
         return response.body().string();
+    }
+
+    public interface ErrorRequestCallback<T> { void callback(ResourceRequestError resourceRequestError); }
+
+    interface BaseRequestCallback { void callback(JSONObject jsonObject); }
+    public void rawGet(BaseRequestCallback baseRequestCallback, ErrorRequestCallback errorRequestCallback) throws IOException, ParseException {
+        try {
+            String jsonResponse = this.getResponse();
+
+            JSONParser parser = new JSONParser();
+            JSONObject jsonObject = (JSONObject) parser.parse(jsonResponse);
+
+            baseRequestCallback.callback(jsonObject);
+        }
+        catch (Exception e) {
+            errorRequestCallback.callback(new ResourceRequestError(666, "toto", e));
+        }
+    }
+
+    public interface ModelRequestCallback<T> { void callback(T endpointResponseModel); }
+    public void get(ModelRequestCallback<T> modelRequestCallback, ErrorRequestCallback errorRequestCallback) throws IOException, ParseException {
+        String jsonResponse = this.getResponse();
+
+        GsonBuilder builder = new GsonBuilder();
+        Gson gson = builder.create();
+
+        modelRequestCallback.callback(gson.fromJson(jsonResponse, typeParameterClass));
     }
 }

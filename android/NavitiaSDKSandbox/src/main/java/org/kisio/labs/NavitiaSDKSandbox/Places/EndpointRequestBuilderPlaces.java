@@ -10,6 +10,7 @@ import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.kisio.labs.NavitiaSDKSandbox.BaseNavitiaRequestBuilder;
 import org.kisio.labs.NavitiaSDKSandbox.NavitiaConfiguration;
+import org.kisio.labs.NavitiaSDKSandbox.ResourceRequestError;
 
 import java.io.IOException;
 
@@ -28,8 +29,14 @@ public class EndpointRequestBuilderPlaces extends BaseNavitiaRequestBuilder {
         return this;
     }
 
-    public interface PlacesRequestCallback { void callback(EndpointResponsePlaces endpointResponsePlaces); }
-    public void get(PlacesRequestCallback placesRequestCallback) throws IOException, ParseException {
-        get((ModelRequestCallback<EndpointResponsePlaces>) endpointResponsePlaces -> placesRequestCallback.callback(endpointResponsePlaces));
+    public interface PlacesRequestCallback {
+        void callback(EndpointResponsePlaces endpointResponsePlaces);
+    }
+
+    public void get(PlacesRequestCallback placesRequestCallback, ErrorRequestCallback errorRequestCallback) throws IOException, ParseException {
+        get(
+                (ModelRequestCallback<EndpointResponsePlaces>) endpointResponsePlaces -> placesRequestCallback.callback(endpointResponsePlaces),
+                resourceRequestError -> errorRequestCallback.callback(resourceRequestError)
+        );
     }
 }
